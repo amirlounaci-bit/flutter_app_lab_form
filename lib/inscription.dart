@@ -9,6 +9,8 @@ class Inscription extends StatefulWidget {
 
 class _InscriptionState extends State<Inscription> {
   final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class _InscriptionState extends State<Inscription> {
         child: Column(
           children: [
             TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'email',
@@ -35,6 +38,7 @@ class _InscriptionState extends State<Inscription> {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: _passwordController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'mot de passe',
@@ -50,7 +54,7 @@ class _InscriptionState extends State<Inscription> {
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                 print('inscription reussie');
+                 print('inscription reussie : ${_emailController.text}');
                  _formKey.currentState!.reset();
                 }
               },
