@@ -8,14 +8,18 @@ class Inscription extends StatefulWidget {
 }
 
 class _InscriptionState extends State<Inscription> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar : AppBar(
         title: const Text('Inscription'),
       ),
-      body : Column(
-        children: [],)
+      body : Form(
+        key: _formKey,
+        child: Column(
+          children: [],),
+      )
     );
   }
 }
