@@ -27,7 +27,7 @@ class _InscriptionState extends State<Inscription> {
                 hintText: 'Entrer votre email',
               ),
               validator: (value) {
-                if (value == null || value.contains('@')) {
+                if (value == null || ! value.contains('@')) {
                   return 'email invalide';
                 }
                 return null;
@@ -48,7 +48,12 @@ class _InscriptionState extends State<Inscription> {
               },
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                 print('inscription reussie');
+                 _formKey.currentState!.reset();
+                }
+              },
               child: const Text('inscription'),
             ),
           ],
